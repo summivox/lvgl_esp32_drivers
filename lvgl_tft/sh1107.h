@@ -25,8 +25,16 @@ extern "C" {
 /*********************
  *      DEFINES
  *********************/
+#if CONFIG_LV_TFT_DISPLAY_PROTOCOL_I2C
+#define SH1107_SDA     CONFIG_LV_DISP_PIN_SDA
+#define SH1107_SCL     CONFIG_LV_DISP_PIN_SCL
+#define OLED_I2C_ADDRESS 0x3C
+#endif  // CONFIG_LV_TFT_DISPLAY_PROTOCOL_I2C
+
+#if CONFIG_LV_TFT_DISPLAY_PROTOCOL_SPI
 #define SH1107_DC   CONFIG_LV_DISP_PIN_DC
 #define SH1107_RST  CONFIG_LV_DISP_PIN_RST
+#endif  // CONFIG_LV_TFT_DISPLAY_PROTOCOL_SPI
 
 /**********************
  *      TYPEDEFS

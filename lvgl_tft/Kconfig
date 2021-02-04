@@ -186,23 +186,22 @@ menu "LVGL TFT Display controller"
     # Used in display init function to send display orientation commands
     choice DISPLAY_ORIENTATION
         prompt "Display orientation"
-        default DISPLAY_ORIENTATION_PORTRAIT
-        config DISPLAY_ORIENTATION_PORTRAIT
+        config LV_DISPLAY_ORIENTATION_PORTRAIT
             bool "Portrait"
-        config DISPLAY_ORIENTATION_PORTRAIT_INVERTED
+        config LV_DISPLAY_ORIENTATION_PORTRAIT_INVERTED
             bool "Portrait inverted"
-        config DISPLAY_ORIENTATION_LANDSCAPE
+        config LV_DISPLAY_ORIENTATION_LANDSCAPE
             bool "Landscape"
-        config DISPLAY_ORIENTATION_LANDSCAPE_INVERTED
+        config LV_DISPLAY_ORIENTATION_LANDSCAPE_INVERTED
             bool "Landscape inverted"
     endchoice
 
     config LV_DISPLAY_ORIENTATION
         int
-        default 0 if DISPLAY_ORIENTATION_PORTRAIT
-        default 1 if DISPLAY_ORIENTATION_PORTRAIT_INVERTED
-        default 2 if DISPLAY_ORIENTATION_LANDSCAPE
-        default 3 if DISPLAY_ORIENTATION_LANDSCAPE_INVERTED
+        default 0 if LV_DISPLAY_ORIENTATION_PORTRAIT
+        default 1 if LV_DISPLAY_ORIENTATION_PORTRAIT_INVERTED
+        default 2 if LV_DISPLAY_ORIENTATION_LANDSCAPE
+        default 3 if LV_DISPLAY_ORIENTATION_LANDSCAPE_INVERTED
 
     config LV_TFT_DISPLAY_OFFSETS
         bool
@@ -294,36 +293,41 @@ menu "LVGL TFT Display controller"
             select LV_TFT_DISPLAY_CONTROLLER_HX8357
             select LV_TFT_DISPLAY_PROTOCOL_SPI
     config LV_TFT_DISPLAY_USER_CONTROLLER_SH1107
-        bool "SH1107"
+        bool "SH1107_SPI"
             select LV_TFT_DISPLAY_CONTROLLER_SH1107
             select LV_TFT_DISPLAY_PROTOCOL_SPI
             select LV_TFT_DISPLAY_MONOCHROME
-        config LV_TFT_DISPLAY_USER_CONTROLLER_SSD1306
-            bool "SSD1306"
+    config LV_TFT_DISPLAY_USER_CONTROLLER_SH1107_I2C
+        bool "SH1107_I2C"
+            select LV_TFT_DISPLAY_CONTROLLER_SH1107
+            select LV_TFT_DISPLAY_PROTOCOL_I2C
+            select LV_TFT_DISPLAY_MONOCHROME
+    config LV_TFT_DISPLAY_USER_CONTROLLER_SSD1306
+        bool "SSD1306"
             select LV_TFT_DISPLAY_CONTROLLER_SSD1306
             select LV_TFT_DISPLAY_PROTOCOL_I2C
             select LV_TFT_DISPLAY_MONOCHROME
-        config LV_TFT_DISPLAY_USER_CONTROLLER_FT81X
-            bool "FT81X"
+    config LV_TFT_DISPLAY_USER_CONTROLLER_FT81X
+        bool "FT81X"
             select LV_TFT_DISPLAY_CONTROLLER_FT81X
             select LV_TFT_DISPLAY_PROTOCOL_SPI
-        config LV_TFT_DISPLAY_USER_CONTROLLER_IL3820
-            bool "IL3820"
+    config LV_TFT_DISPLAY_USER_CONTROLLER_IL3820
+        bool "IL3820"
             select LV_TFT_DISPLAY_CONTROLLER_IL3820
             select LV_TFT_DISPLAY_PROTOCOL_SPI
             select LV_TFT_DISPLAY_MONOCHROME
-        config LV_TFT_DISPLAY_USER_CONTROLLER_JD79653A
-            bool "JD79653A"
+    config LV_TFT_DISPLAY_USER_CONTROLLER_JD79653A
+        bool "JD79653A"
             select LV_TFT_DISPLAY_CONTROLLER_JD79653A
             select LV_TFT_DISPLAY_PROTOCOL_SPI
             select LV_TFT_DISPLAY_MONOCHROME
-        config LV_TFT_DISPLAY_USER_CONTROLLER_UC8151D
-            bool "UC8151D"
+    config LV_TFT_DISPLAY_USER_CONTROLLER_UC8151D
+        bool "UC8151D"
             select LV_TFT_DISPLAY_CONTROLLER_UC8151D
             select LV_TFT_DISPLAY_PROTOCOL_SPI
             select LV_TFT_DISPLAY_MONOCHROME
-        config LV_TFT_DISPLAY_USER_CONTROLLER_RA8875
-            bool "RA8875"
+    config LV_TFT_DISPLAY_USER_CONTROLLER_RA8875
+        bool "RA8875"
             select LV_TFT_DISPLAY_CONTROLLER_RA8875
             select LV_TFT_DISPLAY_PROTOCOL_SPI
     endchoice
