@@ -89,7 +89,7 @@ extern "C" {
 #define DISP_I2C_SDA            CONFIG_LV_DISP_PIN_SDA
 #define DISP_I2C_SCL            CONFIG_LV_DISP_PIN_SCL
 #define DISP_I2C_ORIENTATION    TFT_ORIENTATION_LANDSCAPE
-#define DISP_I2C_SPEED_HZ       400000
+#define DISP_I2C_SPEED_HZ       1250000
 #endif
 
 #endif
