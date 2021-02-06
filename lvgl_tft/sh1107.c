@@ -225,7 +225,7 @@ void sh1107_flush(lv_disp_drv_t * drv, const lv_area_t * area, lv_color_t * colo
             0x10 | columnHigh,
             0x00 | columnLow,
         };
-        CHECK_OK(sh1107_send_cmds_i2c(cmds, 3));
+        sh1107_send_cmds_i2c(cmds, 3);
 #endif  // CONFIG_LV_TFT_DISPLAY_PROTOCOL_I2C
 
 #if defined CONFIG_LV_DISPLAY_ORIENTATION_LANDSCAPE	
